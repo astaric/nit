@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" viewBox="0 0 140 140">
+  <line x1="120.0" y1="70.0" x2="134.0" y2="70.0" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="113.3" y1="95.0" x2="125.4" y2="102.0" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="95.0" y1="113.3" x2="102.0" y2="125.4" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="70.0" y1="120.0" x2="70.0" y2="134.0" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="45.0" y1="113.3" x2="38.0" y2="125.4" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="26.7" y1="95.0" x2="14.6" y2="102.0" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="20.0" y1="70.0" x2="6.0" y2="70.0" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="26.7" y1="45.0" x2="14.6" y2="38.0" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="45.0" y1="26.7" x2="38.0" y2="14.6" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="70.0" y1="20.0" x2="70.0" y2="6.0" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="95.0" y1="26.7" x2="102.0" y2="14.6" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <line x1="113.3" y1="45.0" x2="125.4" y2="38.0" stroke="#ff9f1c" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="70" cy="70" r="42" fill="#ffd23f" stroke="#5a3a22" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M46 52 q8 -14 24 -16" fill="none" stroke="#fff6b0" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="58" cy="72" r="4.5" fill="#5a3a22"/><circle cx="82" cy="72" r="4.5" fill="#5a3a22"/>
+  <path d="M58 86 q12 10 24 0" fill="none" stroke="#5a3a22" stroke-width="5" stroke-linecap="round"/>
+</svg>

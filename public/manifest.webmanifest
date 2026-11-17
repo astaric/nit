@@ -1,0 +1,13 @@
+{
+  "name": "Naravoslovje",
+  "short_name": "Naravoslovje",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#1b1f4b",
+  "theme_color": "#1b1f4b",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "icons/icon-180.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
+  <defs><clipPath id="c"><circle cx="80" cy="60" r="38"/></clipPath></defs>
+  <g transform="rotate(-18 80 60)">
+    <ellipse cx="80" cy="60" rx="72" ry="20" fill="none" stroke="#5a3a22" stroke-width="18"/>
+    <ellipse cx="80" cy="60" rx="72" ry="20" fill="none" stroke="#f3d9a0" stroke-width="8"/>
+  </g>
+  <circle cx="80" cy="60" r="38" fill="#f0d28c"/>
+  <g clip-path="url(#c)"><rect y="40" width="160" height="9" fill="#d9a85c"/><rect y="62" width="160" height="8" fill="#fbe9b8"/><rect y="80" width="160" height="7" fill="#d9a85c"/></g>
+  <circle cx="80" cy="60" r="38" fill="none" stroke="#5a3a22" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/>
+  <g transform="rotate(-18 80 60)" clip-path="url(#front)"><defs><clipPath id="front"><rect x="0" y="60" width="160" height="60"/></clipPath></defs>
+    <ellipse cx="80" cy="60" rx="72" ry="20" fill="none" stroke="#5a3a22" stroke-width="18"/>
+    <ellipse cx="80" cy="60" rx="72" ry="20" fill="none" stroke="#f3d9a0" stroke-width="8"/>
+  </g>
+</svg>
