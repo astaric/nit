@@ -7,6 +7,7 @@ Naravoslovje: educational game built from handwritten science notes (Slovenian, 
 - `npm run dev` — Vite dev server on port 5174 (strict, LAN-exposed for iPad). Configured as `dev` in `.claude/launch.json`.
 - `npm run build` — `tsc --noEmit && vite build`. No linter or tests.
 - `npm run check:content` — quiz-question checker (`scripts/check-content.mjs`, loads the content through Vite SSR). Fails on duplicate answers or question text, fewer than 3 answers, or a correct answer much longer than every wrong one; warns on how often the correct answer is the longest and how much of each Boss pool is shared with its world's Catch pools. Not part of `build`; run it after editing questions.
+- The latest commit's date/time and subject are injected at build/dev-start as `__BUILD_COMMIT__` (`define` in `vite.config.ts`, typed in `src/build-info.d.ts`) and shown faintly at the bottom of `Title`. In dev it only updates when the dev server restarts.
 - Dev helpers: `window.__game` is the Phaser game; `?debug` shows FPS.
 
 ## Architecture
@@ -21,6 +22,6 @@ Phaser 4 + TypeScript + Vite, fixed 2048×1536 canvas (`W`, `H` from `src/core/d
 - **Sound**: synthesised in `src/core/sfx.ts`; `unlockAudio()` must run from a tap.
 - Text helpers in `src/core/ui.ts` (`txt`, `makeCard`, `button`, `panel`). Text on light cards must pass `color: INK`; `txt` defaults to the world's ink colour for use on the background.
 
-**Offline**: the `offlineServiceWorker` plugin in `vite.config.ts` emits `dist/sw.js` after every build, precaching every built file (cache name = content hash, so each build replaces the old cache). It is registered from the bottom of `src/main.ts` in production only. Cache-first, ignoring query strings and `Vary`. iOS requires HTTPS (or localhost) for service workers, so the home-screen app must be installed from a secure host; after the first online launch it works offline, and a new deploy is picked up on the next launch after that.
+**No offline mode**: the game used to precache everything with a service worker, but that kept serving stale builds after a new deploy, so it was removed. `public/sw.js` is only a kill switch for devices that still have the old worker (it clears caches and unregisters itself), and `src/main.ts` also unregisters leftovers. Do not register a service worker again.
 
-**Deploy**: `.github/workflows/deploy.yml` builds and publishes `dist/` to GitHub Pages on every push to `main` (repo Settings → Pages → Source must be "GitHub Actions"). Pages serves project sites from `/<repo>/`, so the build uses `base: './'` and every URL (index.html links, manifest, `sw.js` precache list, SW registration) must stay relative; never add root-absolute (`/foo`) URLs.
+**Deploy**: `.github/workflows/deploy.yml` builds and publishes `dist/` to GitHub Pages on every push to `main` (repo Settings → Pages → Source must be "GitHub Actions"). Pages serves project sites from `/<repo>/`, so the build uses `base: './'` and every URL (index.html links, manifest) must stay relative; never add root-absolute (`/foo`) URLs.

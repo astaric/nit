@@ -26,6 +26,11 @@ export class Title extends Phaser.Scene {
     const kozmo = this.add.image(W / 2, 830, 'kozmo-happy').setScale(2.2);
     this.tweens.add({ targets: kozmo, y: 800,angle: { from: -4, to: 4 }, duration: 900, yoyo: true, repeat: -1, ease: 'Sine.inOut' });
 
+    // Build version (latest commit), small and unobtrusive at the bottom.
+    if (__BUILD_COMMIT__) {
+      txt(this, W / 2, H - 60, __BUILD_COMMIT__, 30, { color: '#ffffff', bold: false, wrap: W - 100 }).setAlpha(0.45);
+    }
+
     // First tap unlocks iOS audio.
     button(this, W / 2, 1300, 'Igraj!', () => {
       unlockAudio();

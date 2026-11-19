@@ -41,10 +41,9 @@ if (import.meta.env.DEV) {
   };
 }
 
-// Offline: dist/sw.js is emitted by the offlineServiceWorker plugin in vite.config.ts and
-// precaches the whole build. Needs HTTPS (or localhost); only registered in production builds.
-if (import.meta.env.PROD && 'serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-  });
+// The game used to register an offline service worker. Remove any left over from
+// older installs and drop their caches (public/sw.js also does this on update).
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then((regs) => regs.forEach((r) => r.unregister())).catch(() => {});
+  if ('caches' in window) caches.keys().then((keys) => keys.forEach((k) => caches.delete(k))).catch(() => {});
 }
