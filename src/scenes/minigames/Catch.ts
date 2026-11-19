@@ -1,139 +1,127 @@
 import Phaser from 'phaser';
-import { W, H } from '../../core/dims';
+import { W } from '../../core/dims';
 import { StudyScene } from '../../core/StudyScene';
 import { sfx } from '../../core/sfx';
 import { burst, makeCard, shuffle, txt, type Card } from '../../core/ui';
 import type { QA } from '../../core/types';
 
-export interface CatchData { title: string; questions: QA[]; count?: number }
+export interface CatchData { title: string; questions: QA[]; count?: number; seconds?: number }
 
-interface Bub { card: Card; ans: number }
+const COLORS = [0xd9f2ff, 0xffe9b8, 0xf3d9ff];
 
-const LANE_COLORS = [0xd9f2ff, 0xffe9b8, 0xf3d9ff, 0xd9ffe3];
-
-/** Steer the rocket sideways and fly into the correct answer as the options fall down. */
+/**
+ * Timed quiz: each question shows three answers and a countdown. Tap the right one before time
+ * runs out. A wrong answer, or no answer at all, costs a heart and the question comes back later.
+ */
 export class Catch extends StudyScene {
-  private rocket!: Phaser.GameObjects.Container;
-  private wave: Bub[] = [];
-  private current: QA | null = null;
-  private live = false;
-  private fallen = 0;
-  private pickFn: ((b: Bub) => void) | null = null;
+  private timeLeft = 0;
+  private total = 12;
+  private timerOn = false;
+  private timerBar!: Phaser.GameObjects.Graphics;
+  private timerText!: Phaser.GameObjects.Text;
+  private timeoutFn: (() => void) | null = null;
 
   constructor() { super('Catch'); }
 
   create(): void {
     const d = this.cfg as CatchData;
     this.setup(d.title, 5);
-    this.wave = [];
-    this.current = null;
-    this.live = false;
+    this.total = d.seconds ?? 12;
+    this.timerOn = false;
     const queue = shuffle(d.questions).slice(0, d.count ?? d.questions.length);
-    const total = queue.length;
+    const totalQ = queue.length;
     let done = 0;
+    let busy = true;
 
     const counter = txt(this, W / 2, 235, '', 40, { bold: false });
-    const qBox = this.add.container(W / 2, 400);
-    const showCount = () => counter.setText(`${done} / ${total}  ·  Povleci raketo v pravi odgovor`);
+    const showCount = () => counter.setText(`${done} / ${totalQ}`);
     showCount();
 
-    // Rocket follows the pointer horizontally
-    const flame = this.add.text(0, 120, '🔥', { fontSize: '70px' }).setOrigin(0.5).setAngle(180);
-    this.tweens.add({ targets: flame, scaleY: 1.4, duration: 120, yoyo: true, repeat: -1 });
-    const ship = this.add.image(0, 0, 'rocket').setScale(0.9);
-    this.rocket = this.add.container(W / 2, 1310, [flame, ship]).setDepth(10);
-    const steer = (p: Phaser.Input.Pointer) => { this.rocket.x = Phaser.Math.Clamp(p.x, 150, W - 150); };
-    this.input.on('pointermove', steer);
-    this.input.on('pointerdown', steer);
+    const qCard = makeCard(this, W / 2, 470, 1860, 300, '', { size: 56 });
+    this.timerBar = this.add.graphics();
+    this.timerText = txt(this, W / 2, 745, '', 44, { bold: true });
+
+    let answerCards: Card[] = [];
+    let currentQ!: QA;
+    let order: number[] = [];
 
     const ask = () => {
       if (this.over) return;
       if (queue.length === 0) { this.win(); return; }
-      const q = queue.shift()!;
-      qBox.removeAll(true);
-      const card = makeCard(this, 0, 0, 1860, 230, q.q, { size: q.q.length > 70 ? 46 : 56 });
-      qBox.add(card.c);
-      this.tweens.add({ targets: qBox, scale: { from: 0.8, to: 1 }, alpha: { from: 0, to: 1 }, duration: 300, ease: 'Back.out' });
-      this.time.delayedCall(900, () => spawn(q));
-    };
+      currentQ = queue.shift()!;
+      // Always three options: the right one plus two random wrong ones.
+      const wrong = shuffle(currentQ.answers.map((_, i) => i).filter((i) => i !== currentQ.correct)).slice(0, 2);
+      order = shuffle([currentQ.correct, ...wrong]);
+      qCard.text.setText(currentQ.q);
+      qCard.text.setFontSize(currentQ.q.length > 80 ? 46 : 56);
+      this.tweens.add({ targets: qCard.c, scale: { from: 0.85, to: 1 }, alpha: { from: 0, to: 1 }, duration: 300, ease: 'Back.out' });
 
-    const spawn = (q: QA) => {
-      if (this.over) return;
-      this.current = q;
-      const order = shuffle(q.answers.map((_, i) => i));
+      answerCards.forEach((c) => c.c.destroy());
       const n = order.length;
-      const laneW = (W - 120) / n;
-      const bw = Math.min(laneW - 36, 600);
-      this.wave = order.map((ai, lane) => {
-        const len = q.answers[ai].length;
-        const card = makeCard(this, 60 + laneW * (lane + 0.5), 600, bw, 200, q.answers[ai], {
-          fill: LANE_COLORS[lane % 4], size: len > 40 ? 34 : len > 22 ? 40 : 48,
+      const gap = 40;
+      const cw = Math.min(600, (W - 120 - gap * (n - 1)) / n);
+      answerCards = order.map((ai, i) => {
+        const a = currentQ.answers[ai];
+        const x = W / 2 + (i - (n - 1) / 2) * (cw + gap);
+        const card = makeCard(this, x, 1100, cw, 420, a, {
+          fill: COLORS[i % COLORS.length], size: a.length > 40 ? 40 : a.length > 22 ? 46 : 56,
         });
-        card.c.setDepth(5);
-        return { card, ans: ai };
+        card.c.setInteractive();
+        card.c.on('pointerdown', () => answer(i));
+        this.tweens.add({ targets: card.c, scale: { from: 0.7, to: 1 }, alpha: { from: 0, to: 1 }, duration: 250, delay: i * 80, ease: 'Back.out' });
+        return card;
       });
-      this.live = true;
-      this.fallen = 0;
-      const fall = Math.max(5400, 8200 - done * 150);
-      this.wave.forEach((b) => {
-        this.tweens.add({
-          targets: b.card.c, y: H + 140, duration: fall, ease: 'Linear',
-          onComplete: () => {
-            if (!this.live) return;
-            if (++this.fallen < this.wave.length) return;
-            // Every option fell past without being picked: ask again, no penalty.
-            this.live = false;
-            this.clearWave(false);
-            this.toast('Zamudil si! Poskusi še enkrat.', false, 1500);
-            this.time.delayedCall(1200, () => spawn(q));
-          },
-        });
-      });
+      this.timeLeft = this.total;
+      this.timerOn = true;
+      busy = false;
     };
 
-    const pick = (b: Bub) => {
-      const q = this.current!;
-      this.live = false;
+    const answer = (slot: number) => {
+      if (busy || this.over) return;
+      busy = true;
+      this.timerOn = false;
       sfx.pop();
-      const right = this.wave.find((o) => o.ans === q.correct)!;
-      right.card.setFill(0xb9f3d3);
-      if (b.ans === q.correct) {
-        burst(this, b.card.c.x, b.card.c.y, 12);
+      const ok = order[slot] === currentQ.correct;
+      const rightSlot = order.indexOf(currentQ.correct);
+      answerCards[rightSlot].setFill(0xb9f3d3);
+      if (ok) {
+        const c = answerCards[slot].c;
+        burst(this, c.x, c.y, 12);
         this.good();
         done++;
         showCount();
-        this.clearWave(true, right);
         this.time.delayedCall(900, ask);
       } else {
-        b.card.setFill(0xff9b9b);
-        this.bad(`Pravilno je: ${q.answers[q.correct]}`);
-        queue.push(q); // asked again later
-        this.clearWave(true, right, b);
-        this.time.delayedCall(2200, ask);
+        answerCards[slot].setFill(0xff9b9b);
+        this.bad(`Pravilno je: ${currentQ.answers[currentQ.correct]}`);
+        queue.push(currentQ); // asked again later
+        if (!this.over) this.time.delayedCall(2300, ask);
       }
     };
-    this.pickFn = pick;
-    this.time.delayedCall(400, ask);
+
+    // No answer before the timer runs out counts as a wrong answer.
+    this.timeoutFn = () => {
+      if (busy || this.over) return;
+      busy = true;
+      this.timerOn = false;
+      answerCards[order.indexOf(currentQ.correct)].setFill(0xb9f3d3);
+      this.bad(`Čas je potekel! Pravilno je: ${currentQ.answers[currentQ.correct]}`);
+      queue.push(currentQ);
+      if (!this.over) this.time.delayedCall(2300, ask);
+    };
+
+    this.time.delayedCall(500, ask);
   }
 
-  /** Stop the falling options; keep the highlighted ones on screen briefly, then fade everything. */
-  private clearWave(keepBriefly: boolean, ...keep: Bub[]): void {
-    this.wave.forEach((o) => {
-      this.tweens.killTweensOf(o.card.c);
-      const stay = keepBriefly && keep.includes(o);
-      this.tweens.add({ targets: o.card.c, alpha: 0, duration: 400, delay: stay ? 1000 : keepBriefly ? 150 : 0, onComplete: () => o.card.c.destroy() });
-    });
-    this.wave = [];
-  }
-
-  update(): void {
-    if (!this.live || this.over) return;
-    for (const b of this.wave) {
-      const c = b.card.c;
-      if (Math.abs(c.y - this.rocket.y) < b.card.h / 2 + 80 && Math.abs(c.x - this.rocket.x) < b.card.w / 2) {
-        this.pickFn?.(b);
-        return;
-      }
-    }
+  update(_t: number, dt: number): void {
+    if (!this.timerOn || this.over) return;
+    this.timeLeft -= dt / 1000;
+    const f = Phaser.Math.Clamp(this.timeLeft / this.total, 0, 1);
+    const g = this.timerBar;
+    g.clear();
+    g.fillStyle(0x000000, 0.35).fillRoundedRect(W / 2 - 930, 660, 1860, 28, 14);
+    g.fillStyle(f > 0.35 ? 0x5dd39e : 0xff6b6b, 1).fillRoundedRect(W / 2 - 930, 660, 1860 * f, 28, 14);
+    this.timerText.setText(`⏱ ${Math.max(0, Math.ceil(this.timeLeft))}`);
+    if (this.timeLeft <= 0) { this.timerOn = false; this.timeoutFn?.(); }
   }
 }
