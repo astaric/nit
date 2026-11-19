@@ -3,44 +3,60 @@ import { qa, type Journey, type QA } from '../core/types';
 // Source: zapiski/04-zemlja-snov-in-energija.md
 
 const osnove: QA[] = [
-  qa('Snov je vse, kar ima …', 'Maso in zavzema prostornino', 'Samo barvo', 'Samo obliko'),
-  qa('Kdaj je v vesolju nastala snov?', 'Ob velikem poku', 'Ob nastanku Lune', 'Ob nastanku ljudi'),
-  qa('Iz česa je sestavljena snov?', 'Iz delcev (atomov)', 'Iz svetlobe', 'Samo iz zraka'),
-  qa('Zakaj delcev snovi ne vidimo s prostim očesom?', 'Ker so zelo majhni', 'Ker so zelo veliki', 'Ker so prozorni'),
-  qa('Koliko agregatnih stanj snovi poznamo?', 'Tri', 'Dve', 'Pet'),
-  qa('Voda je lahko …', 'V vseh treh agregatnih stanjih', 'Samo tekoča', 'Samo trdna'),
-  qa('Oznaka (s) pomeni …', 'Trdno', 'Plinasto', 'Tekoče'),
-  qa('Oznaka (l) pomeni …', 'Tekoče', 'Trdno', 'Plinasto'),
-  qa('Oznaka (g) pomeni …', 'Plinasto', 'Tekoče', 'Trdno'),
-  qa('Kako zapišemo vodno paro?', 'H₂O(g)', 'H₂O(s)', 'H₂O(l)'),
-  qa('Kako zapišemo led?', 'H₂O(s)', 'H₂O(g)', 'H₂O(l)'),
-  qa('Kako se obnašajo delci v trdni snovi?', 'Le nihajo na svojem mestu', 'Zelo hitro letijo po prostoru', 'Izginejo'),
-  qa('Kako so razporejeni delci v plinu?', 'Zelo razmaknjeni po celem prostoru', 'Tesno skupaj', 'V pravilni mreži'),
+  qa('Snov je vse, kar ima …', 'Maso in zavzema določeno prostornino', 'Maso in zavzema določeno površino', 'Barvo in zavzema določeno prostornino', 'Težo in zavzema določeno obliko'),
+  qa('Kdaj je v vesolju nastala snov?', 'Ob velikem poku', 'Ob nastanku Zemlje', 'Ob nastanku Sonca', 'Ob nastanku življenja'),
+  qa('Iz česa je sestavljena snov?', 'Iz zelo majhnih delcev (atomov)', 'Iz neprekinjene mase brez delcev', 'Iz celic, kot pri živih bitjih', 'Iz drobnih kapljic tekočine'),
+  qa('Zakaj delcev snovi ne vidimo s prostim očesom?', 'Ker so za prosto oko premajhni', 'Ker se prehitro premikajo za oko', 'Ker so predaleč od našega očesa', 'Ker jih zakriva zrak okoli nas'),
+  qa('Koliko agregatnih stanj snovi poznamo?', 'Tri', 'Dve', 'Štiri', 'Pet'),
+  qa('Voda je lahko …', 'V vseh treh agregatnih stanjih', 'Samo v tekočem in plinastem stanju', 'Samo v tekočem in trdnem stanju', 'Samo v tekočem stanju'),
+  qa('Kaj pomeni oznaka (g) pri zapisu H₂O(g)?', 'Plinasto (gas)', 'Tekoče (liquid)', 'Trdno (solid)'),
+  qa('Katera oznaka pomeni tekoče stanje?', '(l)', '(s)', '(g)', '(t)'),
+  qa('Kako zapišemo vodno paro?', 'H₂O(g)', 'H₂O(s)', 'H₂O(l)', 'H₂O(p)'),
+  qa('Kako zapišemo led?', 'H₂O(s)', 'H₂O(l)', 'H₂O(g)', 'H₂O(t)'),
+  qa('Kako zapišemo tekočo vodo?', 'H₂O(l)', 'H₂O(s)', 'H₂O(g)', 'H₂O(t)'),
+  qa('Kako se obnašajo delci v trdni snovi?', 'Primaknjeni so in le nihajo na mestu', 'Povsem mirujejo na svojem mestu', 'Odmaknejo se drug od drugega', 'Zelo so razmaknjeni po celem prostoru'),
+  qa('Kako so razporejeni delci v plinu?', 'Zelo razmaknjeni po celem prostoru', 'Primaknjeni in le nihajo na mestu', 'Zbrani v spodnjem delu posode', 'Tesno skupaj, a se prosto premikajo'),
 ];
 
 const voda: QA[] = [
-  qa('Koliko Zemljine površine pokriva voda?', 'Približno 71 %', 'Približno 10 %', 'Približno 95 %'),
-  qa('Koliko vse vode na Zemlji je slane?', 'Približno 97,5 %', 'Približno 50 %', 'Približno 2,5 %'),
-  qa('Koliko vode na Zemlji je sladke?', 'Le približno 2,5 %', 'Približno 97,5 %', 'Približno 71 %'),
-  qa('Kaj pridobivamo iz morske vode?', 'Sol', 'Kovine', 'Les'),
-  qa('Iz rud pridobivamo …', 'Kovine', 'Sol', 'Bombaž'),
-  qa('Iz gline izdelujemo …', 'Posodo', 'Kovine', 'Oblačila'),
-  qa('Kamen uporabljamo za …', 'Gradnjo', 'Pridobivanje soli', 'Izdelavo oblačil'),
-  qa('Les dobimo iz …', 'Dreves', 'Rud', 'Morja'),
-  qa('Bombaž in lan sta vir snovi iz …', 'Rastlin', 'Kamnin', 'Vode'),
-  qa('Iz lesa naredimo …', 'Pohištvo', 'Kovine', 'Sol'),
+  qa('Koliko Zemljine površine pokriva voda?', 'Približno 71 %', 'Približno 29 %', 'Približno 50 %', 'Približno 97,5 %'),
+  qa('Koliko vse vode na Zemlji je slane?', 'Približno 97,5 %', 'Približno 92,5 %', 'Približno 71 %', 'Približno 2,5 %'),
+  qa('Koliko vse vode na Zemlji je sladke?', 'Približno 2,5 %', 'Približno 97,5 %', 'Približno 25 %', 'Približno 71 %'),
+  qa('Kaj pridobivamo iz morske vode?', 'Sol', 'Kovine', 'Posodo', 'Bombaž'),
+  qa('Iz katere snovi pridobivamo kovine?', 'Iz rud', 'Iz gline', 'Iz morske vode', 'Iz bombaža'),
+  qa('Iz gline izdelujemo …', 'Posodo', 'Kovine', 'Pohištvo', 'Oblačila'),
+  qa('Kaj od naštetega je vir snovi za gradnjo?', 'Kamen', 'Bombaž', 'Lan', 'Morska voda'),
+  qa('Kateri vir snovi pripada živi naravi?', 'Les iz dreves', 'Sol iz morske vode', 'Kovine iz rud', 'Posoda iz gline'),
+  qa('Iz česa so bombažna in lanena vlakna?', 'Iz rastlin', 'Iz živalske dlake', 'Iz morske vode', 'Iz gline'),
+  qa('Za kaj človek že od nekdaj izkorišča snovi iz narave?', 'Za prehrano, gradnjo, oblačila in orodje', 'Samo za prehrano in gradnjo, ne pa za orodje', 'Samo za izdelavo oblačil in posode', 'Samo za pridobivanje soli in kovin'),
 ];
 
 const prehodi: QA[] = [
-  qa('Taljenje je prehod iz …', 'Trdnega v tekoče', 'Tekočega v trdno', 'Plinastega v tekoče'),
-  qa('Zamrzovanje je prehod iz …', 'Tekočega v trdno', 'Trdnega v tekoče', 'Tekočega v plinasto'),
-  qa('Izparevanje (vrenje) je prehod iz …', 'Tekočega v plinasto', 'Plinastega v tekoče', 'Trdnega v tekoče'),
-  qa('Kondenzacija je prehod iz …', 'Plinastega v tekoče', 'Tekočega v plinasto', 'Trdnega v plinasto'),
-  qa('Sublimacija je prehod iz …', 'Trdnega v plinasto', 'Plinastega v trdno', 'Tekočega v trdno'),
-  qa('Resublimacija je prehod iz …', 'Plinastega v trdno', 'Trdnega v plinasto', 'Tekočega v plinasto'),
-  qa('Pri taljenju snov …', 'Segrevamo', 'Ohlajamo', 'Stehtamo'),
-  qa('Pri kondenzaciji snov …', 'Ohlajamo', 'Segrevamo', 'Zmešamo'),
+  qa('Taljenje je prehod iz …', 'Trdnega v tekoče', 'Tekočega v trdno', 'Plinastega v tekoče', 'Trdnega v plinasto'),
+  qa('Zamrzovanje je prehod iz …', 'Tekočega v trdno', 'Trdnega v tekoče', 'Tekočega v plinasto', 'Plinastega v trdno'),
+  qa('Izparevanje (vrenje) je prehod iz …', 'Tekočega v plinasto', 'Plinastega v tekoče', 'Trdnega v plinasto', 'Tekočega v trdno'),
+  qa('Kondenzacija je prehod iz …', 'Plinastega v tekoče', 'Tekočega v plinasto', 'Plinastega v trdno', 'Trdnega v plinasto'),
+  qa('Sublimacija je prehod iz …', 'Trdnega v plinasto', 'Plinastega v trdno', 'Tekočega v plinasto', 'Trdnega v tekoče'),
+  qa('Resublimacija je prehod iz …', 'Plinastega v trdno', 'Trdnega v plinasto', 'Plinastega v tekoče', 'Tekočega v trdno'),
+  qa('Pri taljenju snov …', 'Segrevamo, da preide v tekoče stanje', 'Ohlajamo, da preide v tekoče stanje', 'Segrevamo, da preide v trdno stanje', 'Ohlajamo, da preide v plinasto stanje'),
+  qa('Pri kondenzaciji snov …', 'Ohlajamo, da preide v tekoče stanje', 'Segrevamo, da preide v tekoče stanje', 'Ohlajamo, da preide v plinasto stanje', 'Segrevamo, da preide v plinasto stanje'),
 ];
+
+// Lastnosti stanj: delci in obnašanje trdnih, tekočih in plinastih snovi, segrevanje/ohlajanje (Boss).
+const lastnosti: QA[] = [
+  qa('Kaj je značilno za trdno snov?', 'Ima določeno obliko telesa', 'Zavzame obliko posode', 'Delci so zelo razmaknjeni po celem prostoru', 'Delci se odmaknejo drug od drugega'),
+  qa('Kaj velja za delce v tekočini?', 'Odmaknejo se drug od drugega', 'Primaknjeni so in le nihajo na mestu', 'Zelo so razmaknjeni po celem prostoru', 'Povsem mirujejo na svojem mestu'),
+  qa('Kaj se zgodi s tekočino, ko jo prelijemo v steklenico?', 'Zavzame obliko steklenice', 'Ohrani obliko prejšnje posode', 'Ohrani svojo obliko, ne glede na steklenico', 'Strdi se in dobi obliko trdnega telesa'),
+  qa('Kaj velja za plin v plinski jeklenki?', 'Nima določene oblike ne prostornine', 'Ima določeno obliko in prostornino', 'Ima določeno obliko, ne pa prostornine', 'Ima določeno prostornino, ne pa oblike'),
+  qa('Kaj je skupno tekočini in plinu?', 'Zavzameta obliko posode', 'Delci le nihajo na mestu', 'Delci so tesno primaknjeni', 'Delci mirujejo drug ob drugem'),
+  qa('Kako se delci v trdni snovi razlikujejo od delcev v tekočini?', 'V trdni so primaknjeni, v tekočini se odmaknejo', 'V trdni se odmaknejo, v tekočini so primaknjeni', 'V obeh so delci enako primaknjeni in le nihajo', 'V trdni so zelo razmaknjeni, v tekočini primaknjeni'),
+  qa('Kateri od teh prehodov zahteva segrevanje?', 'Sublimacija', 'Resublimacija', 'Kondenzacija', 'Zamrzovanje'),
+  qa('Kateri od teh prehodov zahteva ohlajanje?', 'Zamrzovanje', 'Taljenje', 'Izparevanje', 'Sublimacija'),
+  qa('Kaj se zgodi z vodo H₂O(l), ko jo dovolj segrejemo?', 'Izpari v vodno paro, H₂O(g)', 'Kondenzira v vodno paro, H₂O(g)', 'Sublimira v vodno paro, H₂O(g)', 'Zamrzne v led, H₂O(s)'),
+];
+
+// Boss: lastnosti + prehodi + 4 vprašanja iz osnov in vode (snov, delci, slana voda, rude).
+const bossMix: QA[] = [osnove[0], osnove[2], voda[1], voda[4]];
 
 export const snovi: Journey = {
   id: 'snovi',
@@ -172,7 +188,7 @@ export const snovi: Journey = {
     },
     {
       scene: 'Boss', icon: '⛄', label: 'Boss: Ledeni velikan',
-      data: { title: 'Končni boj: snovi', boss: { emoji: '⛄', name: 'Ledeni velikan' }, questions: [...osnove, ...prehodi, ...voda], count: 10 },
+      data: { title: 'Končni boj: snovi', boss: { emoji: '⛄', name: 'Ledeni velikan' }, questions: [...lastnosti, ...prehodi, ...bossMix], count: 10 },
       recap: [
         'Snov ima maso in zavzema prostornino; sestavljena je iz delcev (atomov).',
         'Trdno, tekoče, plinasto – in šest prehodov med njimi.',

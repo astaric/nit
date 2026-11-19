@@ -14,37 +14,45 @@ const PLANETS = [
 ];
 
 const conditions: QA[] = [
-  qa('Kaj daje Sonce Zemlji?', 'Svetlobo in toploto', 'Samo mraz', 'Kisik in vodo'),
-  qa('Kaj je za življenje nujno potrebno?', 'Tekoča voda', 'Samo led', 'Samo vodna para'),
-  qa('Kaj omogoča primerna temperatura?', 'Obstoj tekoče vode in življenje', 'Nastanek kometov', 'Nastanek Lune'),
-  qa('Kaj vsebuje ozračje?', 'Pline, pomembne za življenje', 'Samo prah', 'Samo vodo'),
-  qa('Kaj nas ščiti pred UV žarki?', 'Ozon (O₃)', 'Dušik', 'Jedro Sonca'),
-  qa('Kaj je cona Zlatolaske?', 'Območje, ravno prav oddaljeno od Sonca za življenje', 'Območje okoli Lune', 'Območje, kjer je najbolj vroče'),
-  qa('Kateri planet leži v coni Zlatolaske?', 'Zemlja', 'Merkur', 'Neptun'),
-  qa('Zakaj je na Merkurju in Veneri prevroče?', 'Sta preblizu Soncu', 'Sta predaleč od Sonca', 'Imata preveč vode'),
-  qa('Kaj ščiti Zemljo pred škodljivimi vplivi iz vesolja?', 'Magnetno polje in ozračje', 'Luna in Mars', 'Oblaki in dež'),
-  qa('Zakaj je na Marsu in zunanjih planetih premrzlo?', 'So predaleč od Sonca', 'So preblizu Soncu', 'Nimajo vode'),
+  qa('Kaj daje Sonce Zemlji?', 'Svetlobo in toploto', 'Tekočo vodo in kisik', 'Ozon in magnetno polje', 'Vodno paro in ozračje'),
+  qa('Kaj je za življenje nujno potrebno?', 'Tekoča voda na površju', 'Površje, prekrito z lavo', 'Trden led na površju', 'Veliko lun okoli planeta'),
+  qa('Kaj omogoča primerna temperatura?', 'Tekočo vodo in življenje', 'Nastanek magnetnega polja', 'Zaščito pred UV žarki', 'Svetlobo in energijo Sonca'),
+  qa('Kaj uravnava temperaturo na Zemlji?', 'Ozračje Zemlje', 'Magnetno polje Zemlje', 'Gravitacija Lune', 'Vrtenje Zemlje'),
+  qa('Kaj nas ščiti pred UV žarki?', 'Ozon (O₃)', 'Kisik (O₂)', 'Vodik (H₂)', 'Dušik (N₂)'),
+  qa('Kaj je cona Zlatolaske?', 'Območje, ravno prav oddaljeno od Sonca', 'Območje, najbližje Soncu in zelo vroče', 'Območje, najbolj oddaljeno od Sonca', 'Območje, kjer je vedno premrzlo in temno'),
+  qa('Kateri planet leži v coni Zlatolaske?', 'Zemlja', 'Venera', 'Mars', 'Neptun'),
+  qa('Zakaj je na Merkurju in Veneri prevroče?', 'Sta preblizu Soncu', 'Sta predaleč od Sonca', 'Sta v coni Zlatolaske', 'Sta zunanja plinasta planeta'),
+  qa('Kaj ščiti Zemljo pred škodljivimi vplivi iz vesolja?', 'Magnetno polje in ozračje', 'Luna in gravitacijska sila', 'Oceani in tekoča voda', 'Vrtenje in nagib Zemljine osi'),
+  qa('Zakaj je na Marsu in zunanjih planetih premrzlo?', 'So predaleč od Sonca', 'So preblizu Soncu', 'Nimajo magnetnega polja', 'Imajo preveč tekoče vode'),
 ];
 
 const general: QA[] = [
-  qa('Kako se imenuje začetek vesolja?', 'Veliki pok', 'Mali pok', 'Rojstvo Sonca'),
-  qa('Pred koliko leti je nastalo vesolje?', 'Pred 13,8 milijarde let', 'Pred 4,5 milijarde let', 'Pred 160 milijoni let'),
-  qa('Osončje je del galaksije …', 'Rimska cesta', 'Andromeda', 'Zemlja'),
-  qa('Kateri planet imenujemo rdeči planet?', 'Mars', 'Venera', 'Jupiter'),
-  qa('Največji planet Osončja je …', 'Jupiter', 'Saturn', 'Zemlja'),
-  qa('Kaj povzroča menjavanje dneva in noči?', 'Vrtenje Zemlje', 'Kroženje Lune okoli Zemlje', 'Sončni mrk'),
-  qa('Kaj povzroča letne čase?', 'Kroženje Zemlje okoli Sonca in nagib osi', 'Vrtenje Zemlje', 'Lunine mene'),
-  qa('Kaj povzroča Lunine mene?', 'Kroženje Lune okoli Zemlje', 'Vrtenje Zemlje', 'Kroženje Zemlje okoli Sonca'),
-  qa('Pri sončnem mrku je … med Soncem in Zemljo.', 'Luna', 'Venera', 'Zemlja'),
-  qa('Pri luninem mrku je … med Soncem in Luno.', 'Zemlja', 'Mars', 'Luna'),
-  qa('Najbolj vroč planet Osončja je …', 'Venera', 'Merkur', 'Mars'),
-  qa('Soncu najbližji planet je …', 'Merkur', 'Venera', 'Neptun'),
-  qa('Kateri planet ima zelo izrazite obroče?', 'Saturn', 'Mars', 'Merkur'),
-  qa('Kateri planet je plinast (zunanji)?', 'Saturn', 'Venera', 'Zemlja'),
-  qa('Kateri planet je kamnit (notranji)?', 'Mars', 'Neptun', 'Jupiter'),
-  qa('Kaj drži planete v krožnicah okoli Sonca?', 'Gravitacijska sila', 'Magnetna sila', 'Veter'),
-  qa('Od Sonca najbolj oddaljen planet je …', 'Neptun', 'Uran', 'Saturn'),
-  qa('Kateri planet je močno nagnjen glede na svojo tirnico?', 'Uran', 'Zemlja', 'Merkur'),
+  qa('Kako se imenuje začetek vesolja?', 'Veliki pok', 'Veliki trk', 'Rojstvo Sonca', 'Velika sprememba'),
+  qa('Pred koliko leti je nastalo vesolje?', 'Pred 13,8 mrd. let', 'Pred 4,5 mrd. let', 'Pred 160 mio. let', 'Pred 13,8 mio. let'),
+  qa('Osončje je del galaksije …', 'Rimska cesta', 'Andromeda', 'Veliki voz', 'Orionova meglica'),
+  qa('Kateri planet imenujemo rdeči planet?', 'Mars', 'Venera', 'Jupiter', 'Merkur'),
+  qa('Največji planet Osončja je …', 'Jupiter', 'Saturn', 'Neptun', 'Zemlja'),
+  qa('Kaj povzroča menjavanje dneva in noči?', 'Vrtenje Zemlje okoli osi', 'Nagib Zemljine osi', 'Kroženje Zemlje okoli Sonca', 'Kroženje Lune okoli Zemlje'),
+  qa('Kaj povzroča letne čase?', 'Kroženje okoli Sonca in nagib osi', 'Spreminjanje oddaljenosti Zemlje od Sonca', 'Kroženje Lune okoli Zemlje in nagib osi', 'Sončni in lunini mrki med letom'),
+  qa('Kaj povzroča Lunine mene?', 'Kroženje Lune okoli Zemlje', 'Zemljina senca, ki pada na Luno', 'Vrtenje Zemlje okoli svoje osi', 'Kroženje Zemlje okoli Sonca'),
+  qa('Kakšen je vrstni red pri sončnem mrku?', 'Sonce – Luna – Zemlja', 'Sonce – Zemlja – Luna', 'Luna – Sonce – Zemlja', 'Zemlja – Sonce – Luna'),
+  qa('Kaj se zgodi pri luninem mrku?', 'Zemlja zasenči Luno', 'Luna zasenči Zemljo', 'Luna zasenči Sonce', 'Zemlja zasenči Sonce'),
+  qa('Najbolj vroč planet Osončja je …', 'Venera', 'Merkur', 'Zemlja', 'Mars'),
+  qa('Soncu najbližji planet je …', 'Merkur', 'Venera', 'Zemlja', 'Mars'),
+  qa('Kateri planet ima zelo izrazite obroče?', 'Saturn', 'Jupiter', 'Uran', 'Neptun'),
+  qa('Kateri planet je plinast (zunanji)?', 'Saturn', 'Venera', 'Zemlja', 'Mars'),
+  qa('Kateri planet je kamnit (notranji)?', 'Zemlja', 'Jupiter', 'Saturn', 'Uran'),
+  qa('Kaj drži planete v krožnicah okoli Sonca?', 'Gravitacijska sila', 'Magnetna sila Sonca', 'Pritisk sončne svetlobe', 'Vrtenje Sonca okoli osi'),
+  qa('Od Sonca najbolj oddaljen planet je …', 'Neptun', 'Uran', 'Saturn', 'Jupiter'),
+  qa('Kateri planet je močno nagnjen glede na svojo tirnico?', 'Uran', 'Zemlja', 'Saturn', 'Neptun'),
+];
+
+// Zemljin naslov in zgradba Osončja (Boss only; Catch uses `conditions`).
+const naslov: QA[] = [
+  qa('Zemljin naslov v vesolju, od najmanjšega do največjega, je …', 'Zemlja, Osončje, Rimska cesta, vesolje', 'Zemlja, Rimska cesta, Osončje, vesolje', 'Osončje, Zemlja, Rimska cesta, vesolje', 'Zemlja, Osončje, vesolje, Rimska cesta'),
+  qa('Koliko planetov ima Osončje?', '8 planetov', '9 planetov', '7 planetov', '10 planetov'),
+  qa('Kam spadajo asteroidi, meteoroidi in kometi?', 'Med majhna telesa Osončja', 'Med pritlikave planete Osončja', 'Med lune zunanjih planetov', 'Med notranje kamnite planete'),
+  qa('Iz česa je vesolje večinoma?', 'Iz praznega prostora', 'Iz zvezd in planetov', 'Iz plina in prahu', 'Iz galaksij in meglic'),
 ];
 
 export const vesolje: Journey = {
@@ -195,7 +203,7 @@ export const vesolje: Journey = {
     },
     {
       scene: 'Boss', icon: '👾', label: 'Boss: Vesoljski požiralec',
-      data: { title: 'Končni boj: vesolje', boss: { emoji: '👾', name: 'Vesoljski požiralec' }, questions: [...general, ...conditions], count: 10 },
+      data: { title: 'Končni boj: vesolje', boss: { emoji: '👾', name: 'Vesoljski požiralec' }, questions: [...general, ...naslov], count: 10 },
       recap: [
         'Zemljin naslov: Zemlja → Osončje → Rimska cesta → vesolje.',
         'Veliki pok 13,8 mrd. let; Osončje 4,6 mrd. let; vesolje je večinoma prazen prostor.',

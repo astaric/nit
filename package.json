@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview --host"
+    "preview": "vite preview --host",
+    "check:content": "node scripts/check-content.mjs"
   },
   "dependencies": {
     "phaser": "^4.2.1"

@@ -3,31 +3,49 @@ import { qa, type Journey, type QA } from '../core/types';
 // Source: zapiski/02-zivljenje-nekoc-in-danes-fosili.md
 
 const celicni: QA[] = [
-  qa('Kdaj se je pojavilo življenje?', 'Pred skoraj 4 milijardami let', 'Pred 600 milijoni let', 'Pred 300.000 leti'),
-  qa('Kakšni so bili prvi organizmi?', 'Enocelični', 'Večcelični', 'Dinozavri'),
-  qa('Današnjim … so bili podobni prvi organizmi.', 'Bakterijam', 'Rastlinam', 'Ribam'),
-  qa('Kdo je v okolje začel sproščati kisik?', 'Cianobakterije (modrozelene cepljivke)', 'Dinozavri', 'Trilobiti'),
-  qa('Kaj je naredil kisik?', 'Močno spremenil okolje: nekaterim škodil, drugim omogočil širjenje', 'Ni naredil nič', 'Ustvaril je Luno'),
-  qa('Kako dolgo so živeli le enocelični organizmi?', 'Skoraj 3 milijarde let', 'Nekaj tisoč let', 'Samo 1 milijon let'),
-  qa('Kdaj so se pojavili prvi večcelični organizmi?', 'Pred približno 1,2 milijarde let', 'Pred 4 milijardami let', 'Pred 60 milijoni let'),
-  qa('Kje se je življenje dolgo razvijalo?', 'Predvsem v morju', 'Na kopnem', 'V zraku'),
-  qa('Kaj pomeni beseda cianin?', 'Modrozeleno barvilo', 'Rdeče barvilo', 'Vrsta kisika'),
-  qa('Kaj lahko vpliva na preživetje organizmov?', 'Vulkanski izbruhi, trki asteroidov, poledenitve', 'Samo dež', 'Nič'),
-  qa('Prve bakterije so bile …', 'Enocelične', 'Večcelične', 'Kopenske rastline'),
-  qa('Pred približno 600 milijoni let se je zgodil …', 'Velik porast števila živalskih vrst', 'Nastanek Sonca', 'Konec dinozavrov'),
+  qa('Kdaj se je pojavilo življenje?', 'Pred skoraj 4 milijardami let', 'Pred približno 3,5 milijarde let', 'Pred približno 1,2 milijarde let', 'Pred približno 600 milijoni let'),
+  qa('Kakšni so bili prvi organizmi in komu so bili po zgradbi podobni?', 'Enocelični, podobni bakterijam', 'Enocelični, podobni evkariontom z jedrom', 'Večcelični, podobni današnjim glivam', 'Večcelični, podobni današnjim rastlinam'),
+  qa('Kdo je v okolje začel sproščati kisik?', 'Cianobakterije (modrozelene cepljivke)', 'Prvi večcelični organizmi v morju', 'Prve kopenske rastline, ki so naselile kopno', 'Prvi evkarionti, celice z jedrom'),
+  qa('Kaj je naredil kisik?', 'Močno spremenil okolje: nekaterim škodil, drugim koristil', 'Povzročil je izumrtje vseh organizmov, ki so živeli v morju', 'Škodil je vsem organizmom, nobenemu ni koristil', 'Koristil je vsem organizmom in jim omogočil širjenje'),
+  qa('Kako dolgo so živeli le enocelični organizmi?', 'Skoraj 3 milijarde let', 'Skoraj 4 milijarde let', 'Približno 1,2 milijarde let', 'Približno 600 milijonov let'),
+  qa('Kdaj so se pojavili prvi večcelični organizmi?', 'Pred približno 1,2 milijarde let', 'Pred približno 2 milijardama let', 'Pred približno 3,5 milijarde let', 'Pred približno 500 milijoni let'),
+  qa('Kje se je življenje dolgo razvijalo?', 'Predvsem v morju', 'Predvsem v sladkih vodah na kopnem', 'Predvsem na kopnem v vlažnih močvirjih', 'Predvsem ob vulkanih na kopnem'),
+  qa('Kaj pomeni beseda cianin?', 'Modrozeleno barvilo', 'Rdeče barvilo v rastlinah', 'Rumeno barvilo v bakterijah', 'Modrikast plin v ozračju'),
+  qa('Kaj spreminja okolje in vpliva na preživetje organizmov?', 'Vulkanski izbruhi, trki asteroidov, poledenitve', 'Plimovanje morij, lunini mrki, menjava letnih časov', 'Menjava dneva in noči, dež, veter', 'Rast rastlin, razmnoževanje bakterij, nastanek fosilov'),
+  qa('Pred približno 600 milijoni let se je zgodil …', 'Velik porast števila živalskih vrst', 'Izumrtje večine živalskih vrst v morju', 'Nastanek prvih evkariontov, celic z jedrom', 'Prve kopenske rastline so naselile kopno'),
 ];
 
 const fosili: QA[] = [
-  qa('Fosili so …', 'Sledi življenja iz preteklih obdobij', 'Sodobne rastline', 'Vrsta kamnine'),
-  qa('Znanost, ki preučuje fosile, je …', 'Paleontologija', 'Astronomija', 'Ekologija'),
-  qa('V kakšnih kamninah so fosili ohranjeni predvsem?', 'V sedimentnih', 'V steklu', 'V kovinah'),
-  qa('Kje se lahko organizem ohrani (konzervacija)?', 'V jantarju, ledu ali suhem okolju', 'V vroči lavi', 'V toplem deževju'),
-  qa('Kaj so živi fosili?', 'Organizmi, podobni svojim davnim sorodnikom', 'Pravkar nastali fosili', 'Živali, ki so nastale iz kamna'),
-  qa('Kateri organizem je živi fosil?', 'Ginko', 'Hrast', 'Detelja'),
-  qa('Kateri živi morski organizem je podoben izumrlemu amonitu?', 'Brodnik', 'Delfin', 'Rak'),
-  qa('Iz fosilov sklepamo …', 'Kako so organizmi živeli in kako se je življenje spreminjalo', 'Koliko je star Mars', 'Kakšno bo vreme'),
-  qa('Fosil je lahko …', 'Ostanek telesa, odtis ali druga sled', 'Samo kost', 'Samo zob'),
-  qa('Fosili ali …', 'Okamnine', 'Kristali', 'Minerali'),
+  qa('Fosili so …', 'Sledi življenja iz preteklih obdobij', 'Ostanki izumrlih živali, ne pa rastlin', 'Najstarejše kamnine na Zemlji', 'Kamnine, nastale iz ohlajene lave'),
+  qa('Znanost, ki preučuje fosile, je …', 'Paleontologija', 'Arheologija', 'Geologija', 'Evolucijska biologija'),
+  qa('V kakšnih kamninah so fosili ohranjeni predvsem?', 'V sedimentnih kamninah', 'V magmatskih kamninah', 'V metamorfnih kamninah', 'V granitnih kamninah'),
+  qa('Kje se lahko organizem ohrani (konzervacija)?', 'V jantarju, ledu ali suhem okolju', 'V vlažnem listju in humusni prsti', 'V vročem pesku ob vulkanih', 'V sladki vodi in blatu jezer'),
+  qa('Kaj so živi fosili?', 'Organizmi, podobni svojim davnim sorodnikom', 'Izumrli organizmi, ki so se ponovno pojavili', 'Organizmi, ohranjeni v jantarju ali ledu', 'Najmlajši fosili, ki so nastali v zadnjih letih'),
+  qa('Kateri organizem je živi fosil?', 'Ginko', 'Hrast', 'Bukev', 'Lipa'),
+  qa('Kateri živi morski organizem je podoben izumrlemu amonitu?', 'Brodnik', 'Hobotnica', 'Školjka', 'Morski ježek'),
+  qa('Iz fosilov sklepamo …', 'Kako so organizmi živeli in kako se je življenje spreminjalo', 'Kako bodo organizmi živeli in kako se bo življenje spreminjalo', 'Kako so nastale kamnine in kako so se spreminjale celine', 'Kako so organizmi umirali in zakaj so izumrli'),
+  qa('Fosil je lahko …', 'Ostanek telesa, izloček ali odtis', 'Samo okamnela kost ali zob živali', 'Samo celoten organizem, ohranjen v kamnu', 'Samo okostje, ki je ostalo v kamnini'),
+  qa('Fosili ali …', 'Okamnine', 'Kristali', 'Minerali', 'Sedimenti'),
+];
+
+// Boss-only pool: dates from the timeline table and the ways fossils form.
+const trak: QA[] = [
+  qa('Katera od teh skupin je najstarejša?', 'Ribe, prvi vretenčarji v vodi', 'Dvoživke, prve tudi na kopnem', 'Plazilci, manj vezani na vodo', 'Dinozavri, dolgo na vrhu kopna'),
+  qa('Kdaj so se pojavile prve kopenske rastline?', 'Pred približno 470 milijoni let', 'Pred približno 370 milijoni let', 'Pred približno 140 milijoni let', 'Pred približno 1,2 milijarde let'),
+  qa('Kaj so evkarionti in kdaj so se pojavili?', 'Celice z jedrom, pred 2 milijardama let', 'Celice brez jedra, pred 2 milijardama let', 'Celice z jedrom, pred 3,5 milijarde let', 'Celice brez jedra, pred skoraj 4 milijardami let'),
+  qa('Kaj so bili trilobiti?', 'Nevretenčarji iz morja izpred več kot 500 mio. let', 'Prvi vretenčarji iz morja izpred 500 mio. let', 'Prve rastline, ki so naselile kopno pred 470 mio. let', 'Plazilci iz morja izpred 320 mio. let'),
+  qa('Iz česa so se razvile ptice?', 'Iz ene skupine pernatih dinozavrov', 'Iz dvoživk, ki so se naselile na kopno', 'Iz majhnih zgodnjih sesalcev ob dinozavrih', 'Iz primatov, ki so se vzpeli na drevesa'),
+  qa('Kaj se je razširilo pred približno 140 milijoni let?', 'Cvetnice, rastline s cvetovi, v kredi', 'Prve kopenske rastline, ki so naselile kopno', 'Prvi mnogocelični organizmi v morju', 'Primati, skupina sesalcev s človekom'),
+  qa('Kdaj so živeli prvi sesalci?', 'Že v času dinozavrov, pred več kot 200 mio. let', 'Šele po izumrtju dinozavrov, pred približno 60 mio. let', 'Skupaj s prvimi ribami, pred približno 500 mio. let', 'Skupaj s Homo sapiens, pred približno 300.000 leti'),
+  qa('Kdaj se je pojavil Homo sapiens?', 'Pred približno 300.000 leti', 'Pred približno 2,8 milijona let', 'Pred približno 7 milijoni let', 'Pred približno 60 milijoni let'),
+  qa('Kateri primer je konzervacija?', 'Žuželka, ohranjena v jantarju ali ledu', 'List, ki se je v zemlji spremenil v oglje', 'Stopinje dinozavra, ohranjene v strjenem blatu', 'Odtis školjke v mehkem sedimentu'),
+];
+
+// Boss: mostly the fresh timeline/fossil-formation questions, plus a few from the Catch pools.
+const bossPool: QA[] = [
+  ...trak,
+  celicni[3], celicni[4], // kisik, trajanje enoceličarjev
+  fosili[4], fosili[7], // živi fosili, sklepanje iz fosilov
 ];
 
 export const zivljenje: Journey = {
@@ -123,7 +141,7 @@ export const zivljenje: Journey = {
     },
     {
       scene: 'Boss', icon: '🦖', label: 'Boss: T-Rex',
-      data: { title: 'Končni boj: življenje', boss: { emoji: '🦖', name: 'Mogočni T-Rex' }, questions: [...celicni, ...fosili], count: 10 },
+      data: { title: 'Končni boj: življenje', boss: { emoji: '🦖', name: 'Mogočni T-Rex' }, questions: bossPool, count: 10 },
       recap: [
         'Spremembe okolja vplivajo na preživetje: vulkanski izbruhi, trki asteroidov, poledenitve, podnebne spremembe.',
         'Če katero vprašanje še dela težave, ponovi nivoje na zemljevidu.',

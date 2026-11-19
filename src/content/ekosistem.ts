@@ -3,29 +3,48 @@ import { qa, type Journey, type QA } from '../core/types';
 // Source: zapiski/03-ekosistem-in-prilagoditve.md
 
 const osnove: QA[] = [
-  qa('Biocenoza + biotop = ?', 'Ekosistem', 'Biom', 'Prilagoditev'),
-  qa('Biocenoza so …', 'Živi dejavniki (organizmi)', 'Neživi dejavniki', 'Samo rastline'),
-  qa('Biotop je …', 'Življenjski prostor (neživi dejavniki)', 'Skupina živali', 'Vrsta rastline'),
-  qa('Kateri dejavnik vpliva na rast rastlin?', 'Svetloba', 'Zračni tlak', 'Luna'),
-  qa('Kateri dejavnik določa, kateri organizmi lahko živijo v okolju?', 'Voda', 'Barva neba', 'Hrup'),
-  qa('Neživi dejavniki vplivajo na …', 'Rast, preživetje in razširjenost organizmov', 'Samo barvo listov', 'Nič'),
-  qa('Organizmi s svojim delovanjem …', 'Spreminjajo razmere v okolju', 'Ne vplivajo na okolje', 'Ustavijo čas'),
-  qa('V katerem biomu leži Slovenija?', 'V listopadnem gozdu', 'V savani', 'V puščavi'),
-  qa('Kaj je biom?', 'Večja naravna enota ekosistemov s podobnimi dejavniki', 'Majhna luža', 'Vrsta živali'),
+  qa('Biocenoza + biotop = ?', 'Ekosistem', 'Biom', 'Prilagoditev', 'Dejavnik okolja'),
+  qa('Biocenoza so …', 'Živi dejavniki (organizmi)', 'Neživi dejavniki okolja', 'Življenjski prostor organizmov', 'Skupina ekosistemov s podobnimi dejavniki'),
+  qa('Biotop je …', 'Življenjski prostor (neživi dejavniki)', 'Vsi organizmi, ki živijo na območju', 'Večja enota ekosistemov s podobnimi dejavniki', 'Živi dejavniki (vsa živa bitja)'),
+  qa('Kateri dejavnik po zapiskih vpliva na rast rastlin?', 'Svetloba', 'Zračni tlak', 'Zemljina privlačnost'),
+  qa('Kateri dejavnik po zapiskih določa, kateri organizmi lahko živijo v okolju?', 'Voda', 'Zračni tlak', 'Zemljina privlačnost'),
+  qa('Neživi dejavniki vplivajo na …', 'Rast, preživetje in razširjenost organizmov', 'Samo rast in razmnoževanje rastlin in živali', 'Samo število živali, ne pa tudi rastlin', 'Samo barvo, velikost in obliko organizmov'),
+  qa('Organizmi s svojim delovanjem …', 'Spreminjajo razmere v okolju', 'Se prilagajajo, okolja pa ne spreminjajo', 'Vplivajo le na druge organizme, ne na okolje', 'Določajo, kateri neživi dejavniki obstajajo'),
+  qa('V katerem biomu leži Slovenija?', 'V biomu listopadnih gozdov', 'V biomu savane', 'V biomu puščave', 'V biomu tropskega deževnega gozda'),
+  qa('Kaj je biom?', 'Večja enota ekosistemov s podobnimi dejavniki', 'Skupek živih in neživih dejavnikov enega ekosistema', 'Življenjski prostor ene same vrste organizmov', 'Skupina organizmov, ki živijo na istem območju'),
 ];
 
 const jesen: QA[] = [
-  qa('Zakaj listi jeseni odpadejo?', 'Zaradi pomanjkanja svetlobe in vode', 'Ker jih pojedo živali', 'Ker se pogreje'),
-  qa('Kaj se jeseni zgodi s klorofilom?', 'Propade, zato ni fotosinteze', 'Se podvoji', 'Spremeni se v led'),
-  qa('Kaj je adaptacija (prilagoditev)?', 'Lastnost, ki organizmu pomaga živeti v določenem okolju', 'Vrsta kamnine', 'Del ozračja'),
-  qa('Kaj imajo živali, ki pozimi ostanejo dejavne?', 'Gostejšo dlako ali perje in plast tolšče', 'Brlog', 'Perutnice'),
-  qa('Zimsko spanje se imenuje …', 'Hibernacija', 'Fotosinteza', 'Kondenzacija'),
-  qa('Kaj naredijo nekatere ptice pozimi?', 'Odselijo se v toplejše kraje', 'Zakopljejo se v tla', 'Postanejo kamen'),
-  qa('Kaj naredijo listavci pozimi?', 'Odvržejo listje', 'Zrastejo višje', 'Ostanejo zeleni brez sprememb'),
-  qa('Zakaj so iglice odporne?', 'So odpornejše proti zmrzovanju', 'So mehke', 'So polne vode'),
-  qa('Kaj se zgodi s travniškimi rastlinami pozimi?', 'Nadzemni deli odmrejo, spomladi poženejo novi', 'Odletijo', 'Se stopijo'),
-  qa('Zakaj je zima za rastline težka?', 'Primanjkuje svetlobe, voda je težje dostopna, temperature so nižje', 'Ker je preveč sonca', 'Ker je preveč vode'),
+  qa('Zakaj listi jeseni odpadejo?', 'Zaradi pomanjkanja svetlobe in vode', 'Zaradi pomanjkanja zraka in prostora', 'Zaradi preveč padavin in vetra', 'Zaradi žuželk in drugih škodljivcev'),
+  qa('Kaj se jeseni zgodi s klorofilom?', 'Propade, zato ni fotosinteze', 'Ostane nespremenjen, fotosinteza teče naprej', 'Nabere se v listih, zato postanejo pretežki', 'Preseli se v korenine, kjer se shrani'),
+  qa('Kaj je adaptacija (prilagoditev)?', 'Lastnost, ki organizmu pomaga živeti v določenem okolju', 'Sprememba okolja, ki jo povzročijo organizmi s svojim delovanjem', 'Življenjski prostor, v katerem organizem živi', 'Skupina organizmov, ki živijo v istem okolju'),
+  qa('Kaj imajo živali, ki pozimi ostanejo dejavne?', 'Gostejšo dlako ali perje in plast tolšče', 'Toplo zavetje v brlogu ali rovu, kjer prespijo', 'Sposobnost, da otrpnejo in mirujejo', 'Krila za selitev v toplejše kraje'),
+  qa('Kako se imenuje zimsko spanje živali?', 'Hibernacija', 'Mirovanje rastlin', 'Otrpnelost telesa', 'Selitev v toplejše kraje'),
+  qa('Kaj naredijo nekatere ptice pozimi?', 'Odselijo se v toplejše kraje', 'Zakopljejo se in prespijo zimo', 'Otrpnejo, dokler se ne ogreje', 'Ostanejo dejavne brez prilagoditev'),
+  qa('Kaj naredijo listavci pozimi?', 'Odvržejo listje', 'Nadzemni deli odmrejo, spomladi poženejo novi', 'Iglice jih obvarujejo pred zmrzovanjem', 'Ostanejo zeleni, brez kakršnih koli sprememb'),
+  qa('Kaj imajo iglavci, da prestanejo zimo?', 'Iglice, odpornejše proti zmrzovanju', 'Plast tolšče pod debelim lubjem', 'Listje, ki ga odvržejo vsako jesen', 'Nadzemne dele, ki pozimi povsem odmrejo'),
+  qa('Kaj se zgodi s travniškimi rastlinami pozimi?', 'Nadzemni deli odmrejo, spomladi poženejo novi', 'Odvržejo listje, spomladi pa ga razvijejo na novo', 'Imajo iglice, odpornejše proti zmrzovanju', 'Ostanejo zelene in rastejo kot poleti'),
+  qa('Zakaj je zima za rastline težka?', 'Manj svetlobe, voda je težje dostopna, nižje temperature', 'Primanjkuje zraka, tla so pretrda in zračni tlak je nižji', 'Preveč je sonca, rastline se pregrejejo, vode je preveč', 'Primanjkuje mineralnih snovi, listi so pretežki'),
 ];
+
+// Fresh questions for the Boss (Catch uses osnove + jesen).
+const okolje: QA[] = [
+  qa('Kaj se zgodi z vodo, ko bober zgradi jez?', 'Tok se upočasni in nastane ribnik', 'Tok se pospeši in nastane slap', 'Struga se izsuši in nastane suho kopno', 'Voda se ogreje in nastane močvirje'),
+  qa('Kaj se zgodi s tlemi, ko jih deževnik prerije z rovi?', 'Tla se zrahljajo, zrak in voda prodirata globlje', 'Tla se zbijejo, zrak in voda ne prodirata globlje', 'Tla se zasenčijo, odpadlo listje pa postane humus', 'Tla postanejo suha in brez zraka'),
+  qa('Kaj potrebuje deževnik?', 'Vlažna tla', 'Vodno okolje', 'Suha tla z veliko svetlobe', 'Mineralne snovi v zraku'),
+  qa('Kaj drevo spremeni v svojem okolju?', 'Daje senco, odpadlo listje postane humus', 'Zgradi jez, ki upočasni tok vode in ustvari ribnik', 'Z rovi zrahlja tla in prezrači zemljo', 'Z lepljivimi listi lovi žuželke'),
+  qa('Kateri dejavniki okolja vplivajo na drevo?', 'Svetloba, voda, temperatura, mineralne snovi v tleh', 'Senca, nižja temperatura, odpadlo listje in nastali humus', 'Rovi deževnikov, jezovi in ribniki', 'Zračni tlak in Zemljina privlačnost'),
+  qa('Kakšna je prilagoditev rosike (mesojedke)?', 'Lepljivi listi, ki lovijo žuželke', 'Dolge noge in kljun za lov v vodi', 'Kopita in močne noge za hojo po skalah', 'Gostejša dlaka in plast tolšče'),
+  qa('Katera žival ima dolge noge in kljun za lov v vodi?', 'Čaplja', 'Gams', 'Lastovka', 'Srna'),
+  qa('Katere živali pozimi ostanejo dejavne?', 'Zajec, srna in lisica', 'Kača, žaba in močerad', 'Medved, jež in jazbec', 'Lastovke in druge ptice selivke'),
+  qa('Kaj se pozimi zgodi s kačami, žabami in močeradi?', 'Zaradi mraza otrpnejo', 'Odselijo se v toplejše kraje', 'Prespijo zimo v toplem brlogu', 'Ostanejo dejavne in iščejo hrano'),
+  qa('Katera žival pozimi prespi (hibernacija)?', 'Medved', 'Zajec', 'Kača', 'Lastovka'),
+  qa('Kaj naredijo rastline z mirovanjem pozimi?', 'Upočasnijo življenjske procese in fotosintezo', 'Pospešijo fotosintezo, da nadomestijo mraz', 'Pospešijo rast, da izkoristijo vlago v tleh', 'Povsem prenehajo z vsemi življenjskimi procesi'),
+  qa('Kaj sestavlja ekosistem jezera?', 'Živa bitja v jezeru in njihov življenjski prostor', 'Samo živa bitja, ki živijo v vodi', 'Samo neživi dejavniki jezera: voda, tla in svetloba', 'Vsa jezera sveta s podobnimi dejavniki'),
+];
+
+// Boss pool: all fresh questions plus a few classics (Slovenija, biom, listi, iglavci, travniške rastline).
+const bossPool: QA[] = [...okolje, osnove[7], osnove[8], jesen[0], jesen[7], jesen[8]];
 
 const dejavniki = [
   { text: 'Rastline', emoji: '🌿', bin: 0 },
@@ -87,20 +106,21 @@ export const ekosistem: Journey = {
     {
       scene: 'Match', icon: '🪱', label: 'Okolje se spreminja',
       data: {
-        title: 'Organizmi spreminjajo okolje',
+        title: 'Okolje in organizmi',
         perRound: 3,
         pairs: [
-          { a: 'Deževnik', ea: '🪱', b: 'Z rovi rahlja tla in omogoča prodiranje zraka in vode' },
-          { a: 'Bober', ea: '🦫', b: 'Z jezom upočasni tok vode in ustvari ribnik' },
-          { a: 'Drevo', ea: '🌳', b: 'Daje senco, odpadlo listje → humus' },
-          { a: 'Svetloba', ea: '☀️', b: 'Vpliva na rast rastlin' },
-          { a: 'Voda', ea: '💧', b: 'Določa, kateri organizmi lahko živijo v okolju' },
-          { a: 'Rastline', ea: '🌿', b: 'Spreminjajo senco, tla in količino vode' },
+          { a: 'Drevo spreminja okolje', ea: '🌳', b: 'Daje senco, odpadlo listje → humus' },
+          { a: 'Deževnik spreminja okolje', ea: '🪱', b: 'Z rovi rahlja tla in omogoča prodiranje zraka in vode' },
+          { a: 'Bober spreminja okolje', ea: '🦫', b: 'Z jezom upočasni tok vode in ustvari ribnik' },
+          { a: 'Drevo potrebuje', ea: '🌳', b: 'Svetlobo, vodo, primerno temperaturo, mineralne snovi v tleh' },
+          { a: 'Deževnik potrebuje', ea: '🪱', b: 'Vlažna tla' },
+          { a: 'Bober potrebuje', ea: '🦫', b: 'Vodno okolje' },
         ],
       },
       recap: [
         'Dejavniki so med seboj povezani: okolje vpliva na organizme, organizmi pa spreminjajo okolje.',
         'Deževnik rahlja tla, bober z jezom naredi ribnik, drevo daje senco in humus.',
+        'Okolje vpliva nanje: drevo potrebuje svetlobo, vodo, temperaturo in mineralne snovi v tleh, deževnik vlažna tla, bober vodno okolje.',
       ],
     },
     {
@@ -214,7 +234,7 @@ export const ekosistem: Journey = {
     },
     {
       scene: 'Boss', icon: '🐺', label: 'Boss: Zimski volk',
-      data: { title: 'Končni boj: ekosistemi', boss: { emoji: '🐺', name: 'Zimski volk' }, questions: [...osnove, ...jesen], count: 10 },
+      data: { title: 'Končni boj: ekosistemi', boss: { emoji: '🐺', name: 'Zimski volk' }, questions: bossPool, count: 10 },
       recap: [
         'Ekosistem = biocenoza + biotop. Dejavniki so med seboj povezani.',
         'Prilagoditve pomagajo organizmom preživeti, tudi pozimi: mirovanje, spanje, selitev.',
