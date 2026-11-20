@@ -26,7 +26,7 @@ export class Catch extends StudyScene {
   create(): void {
     const d = this.cfg as CatchData;
     this.setup(d.title, 5);
-    this.total = d.seconds ?? 12;
+    this.total = d.seconds ?? 24;
     this.timerOn = false;
     const queue = shuffle(d.questions).slice(0, d.count ?? d.questions.length);
     const totalQ = queue.length;
