@@ -33,7 +33,6 @@ const trak: QA[] = [
   qa('Katera od teh skupin je najstarejša?', 'Ribe, prvi vretenčarji v vodi', 'Dvoživke, prve tudi na kopnem', 'Plazilci, manj vezani na vodo', 'Dinozavri, dolgo na vrhu kopna'),
   qa('Kdaj so se pojavile prve kopenske rastline?', 'Pred približno 470 milijoni let', 'Pred približno 370 milijoni let', 'Pred približno 140 milijoni let', 'Pred približno 1,2 milijarde let'),
   qa('Kaj so evkarionti in kdaj so se pojavili?', 'Celice z jedrom, pred 2 milijardama let', 'Celice brez jedra, pred 2 milijardama let', 'Celice z jedrom, pred 3,5 milijarde let', 'Celice brez jedra, pred skoraj 4 milijardami let'),
-  qa('Kaj so bili trilobiti?', 'Nevretenčarji iz morja izpred več kot 500 mio. let', 'Prvi vretenčarji iz morja izpred 500 mio. let', 'Prve rastline, ki so naselile kopno pred 470 mio. let', 'Plazilci iz morja izpred 320 mio. let'),
   qa('Iz česa so se razvile ptice?', 'Iz ene skupine pernatih dinozavrov', 'Iz dvoživk, ki so se naselile na kopno', 'Iz majhnih zgodnjih sesalcev ob dinozavrih', 'Iz primatov, ki so se vzpeli na drevesa'),
   qa('Kaj se je razširilo pred približno 140 milijoni let?', 'Cvetnice, rastline s cvetovi, v kredi', 'Prve kopenske rastline, ki so naselile kopno', 'Prvi mnogocelični organizmi v morju', 'Primati, skupina sesalcev s človekom'),
   qa('Kdaj so živeli prvi sesalci?', 'Že v času dinozavrov, pred več kot 200 mio. let', 'Šele po izumrtju dinozavrov, pred približno 60 mio. let', 'Skupaj s prvimi ribami, pred približno 500 mio. let', 'Skupaj s Homo sapiens, pred približno 300.000 leti'),
