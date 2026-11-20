@@ -47,3 +47,10 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistrations().then((regs) => regs.forEach((r) => r.unregister())).catch(() => {});
   if ('caches' in window) caches.keys().then((keys) => keys.forEach((k) => caches.delete(k))).catch(() => {});
 }
+
+// Drop the cache-busting parameter added by the Title screen's update button.
+if (new URLSearchParams(location.search).has('r')) {
+  const url = new URL(location.href);
+  url.searchParams.delete('r');
+  history.replaceState(null, '', url.toString());
+}

@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { W, H } from '../core/dims';
 import { sfx, unlockAudio } from '../core/sfx';
 import { button, txt } from '../core/ui';
+import { reloadLatest } from '../core/reload';
 
 const PLANETS = ['mercury', 'venus', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'moon'];
 
@@ -37,5 +38,12 @@ export class Title extends Phaser.Scene {
       sfx.pop();
       this.scene.start('GameSelect');
     }, { w: 620, h: 170, size: 84 });
+
+    // Fetch the newest deployed version (bypasses any stale cache).
+    button(this, W - 230, 110, '↻ Posodobi', () => {
+      unlockAudio();
+      sfx.pop();
+      void reloadLatest();
+    }, { w: 380, h: 110, size: 46, fill: 0x5db7ff, pulse: false });
   }
 }
